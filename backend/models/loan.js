@@ -1,4 +1,4 @@
-'use strict';
+
 const {
   Model
 } = require('sequelize');
@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   Loan.init({
     status: DataTypes.STRING,
     user_id: DataTypes.INTEGER,
+    loancategory_id:DataTypes.INTEGER,
     amount: DataTypes.STRING
   }, {
     sequelize,

@@ -34,8 +34,10 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-db.user = require("../models/user.model.js")(sequelize, Sequelize);
-db.role = require("../models/role.model.js")(sequelize, Sequelize);
+db.user = require("../models/user.js")(sequelize, Sequelize);
+db.role = require("../models/role.js")(sequelize, Sequelize);
+db.loancategory = require("../models/loancategory.js")(sequelize, Sequelize);
+db.loan = require("../models/loan.js")(sequelize, Sequelize);
 db.role.belongsToMany(db.user, {
   through: "user_roles",
   foreignKey: "roleId",
@@ -46,5 +48,14 @@ db.user.belongsToMany(db.role, {
   foreignKey: "userId",
   otherKey: "roleId"
 });
+
+// db.loancategory.hasMany(db.loan, {
+//   foreignKey: "loancategory_Id",
+// });
+// db.user.hasMany(db.loan, {
+//   foreignKey: "user_Id",
+// });
+
+
 db.ROLES = ["customer", "admin"];
 module.exports = db;

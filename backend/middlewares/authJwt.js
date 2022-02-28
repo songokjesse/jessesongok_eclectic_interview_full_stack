@@ -72,7 +72,7 @@ isCustomerOrAdmin = (req, res, next) => {
 const authJwt = {
     verifyToken: verifyToken,
     isAdmin: isAdmin,
-    isModerator: isModerator,
-    isModeratorOrAdmin: isModeratorOrAdmin
+    isCustomerOrAdmin: isCustomerOrAdmin,
+    isCustomer: isCustomer
 };
 module.exports = authJwt;
